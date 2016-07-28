@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8D691A91D4A568200BEC432 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D691A71D4A568200BEC432 /* MainViewController.swift */; };
+		D8D691AA1D4A568200BEC432 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8D691A81D4A568200BEC432 /* MainViewController.xib */; };
 		D8F518981D48F5CF00231213 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F518971D48F5CF00231213 /* AppDelegate.swift */; };
-		D8F5189A1D48F5CF00231213 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F518991D48F5CF00231213 /* ViewController.swift */; };
-		D8F5189D1D48F5CF00231213 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F5189B1D48F5CF00231213 /* Main.storyboard */; };
 		D8F518A01D48F5CF00231213 /* HFSideMenuViewController.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8F5189E1D48F5CF00231213 /* HFSideMenuViewController.xcdatamodeld */; };
 		D8F518A21D48F5CF00231213 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8F518A11D48F5CF00231213 /* Assets.xcassets */; };
 		D8F518A51D48F5CF00231213 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F518A31D48F5CF00231213 /* LaunchScreen.storyboard */; };
@@ -35,10 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D8D691A71D4A568200BEC432 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D8D691A81D4A568200BEC432 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		D8F518941D48F5CF00231213 /* HFSideMenuViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HFSideMenuViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F518971D48F5CF00231213 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D8F518991D48F5CF00231213 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D8F5189C1D48F5CF00231213 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8F5189F1D48F5CF00231213 /* HFSideMenuViewController.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HFSideMenuViewController.xcdatamodel; sourceTree = "<group>"; };
 		D8F518A11D48F5CF00231213 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8F518A41D48F5CF00231213 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -100,12 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				D8F518971D48F5CF00231213 /* AppDelegate.swift */,
-				D8F518991D48F5CF00231213 /* ViewController.swift */,
-				D8F5189B1D48F5CF00231213 /* Main.storyboard */,
+				D8D691A71D4A568200BEC432 /* MainViewController.swift */,
+				D8D691A81D4A568200BEC432 /* MainViewController.xib */,
+				D8F5189E1D48F5CF00231213 /* HFSideMenuViewController.xcdatamodeld */,
 				D8F518A11D48F5CF00231213 /* Assets.xcassets */,
 				D8F518A31D48F5CF00231213 /* LaunchScreen.storyboard */,
 				D8F518A61D48F5CF00231213 /* Info.plist */,
-				D8F5189E1D48F5CF00231213 /* HFSideMenuViewController.xcdatamodeld */,
 			);
 			path = HFSideMenuViewController;
 			sourceTree = "<group>";
@@ -234,7 +234,7 @@
 			files = (
 				D8F518A51D48F5CF00231213 /* LaunchScreen.storyboard in Resources */,
 				D8F518A21D48F5CF00231213 /* Assets.xcassets in Resources */,
-				D8F5189D1D48F5CF00231213 /* Main.storyboard in Resources */,
+				D8D691AA1D4A568200BEC432 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,8 +260,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8F518A01D48F5CF00231213 /* HFSideMenuViewController.xcdatamodeld in Sources */,
-				D8F5189A1D48F5CF00231213 /* ViewController.swift in Sources */,
 				D8F518981D48F5CF00231213 /* AppDelegate.swift in Sources */,
+				D8D691A91D4A568200BEC432 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +297,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D8F5189B1D48F5CF00231213 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D8F5189C1D48F5CF00231213 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D8F518A31D48F5CF00231213 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -404,6 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HFSideMenuViewController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HenryFanDi.HFSideMenuViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -415,6 +408,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HFSideMenuViewController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HenryFanDi.HFSideMenuViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -486,6 +480,7 @@
 				D8F518C11D48F5D000231213 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8F518C21D48F5D000231213 /* Build configuration list for PBXNativeTarget "HFSideMenuViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +489,7 @@
 				D8F518C41D48F5D000231213 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8F518C51D48F5D000231213 /* Build configuration list for PBXNativeTarget "HFSideMenuViewControllerUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +498,7 @@
 				D8F518C71D48F5D000231213 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
