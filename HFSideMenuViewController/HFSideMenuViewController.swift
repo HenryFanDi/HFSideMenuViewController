@@ -10,6 +10,12 @@ import UIKit
 
 class HFSideMenuViewController: UIViewController {
   
+  enum HFSideMenuType {
+    case HFSideMenuMain
+    case HFSideMenuLeft
+    case HFSideMenuRight
+  }
+  
   private var menuWidth: CGFloat
   private var mainViewController: UIViewController
   private var leftViewController: UIViewController
@@ -37,6 +43,7 @@ class HFSideMenuViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupViewControllerWithHFSideMenuType(.HFSideMenuMain)
     setupView()
   }
   
@@ -48,6 +55,13 @@ class HFSideMenuViewController: UIViewController {
   
   private func setupView() {
     view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+  }
+  
+  private func setupViewControllerWithHFSideMenuType(sideMenuType: HFSideMenuType) {
+    if sideMenuType == .HFSideMenuMain {
+    } else if sideMenuType == .HFSideMenuLeft {
+    } else if sideMenuType == .HFSideMenuRight {
+    }
   }
   
 }
