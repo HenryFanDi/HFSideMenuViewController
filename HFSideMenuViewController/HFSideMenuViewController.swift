@@ -16,6 +16,12 @@ class HFSideMenuViewController: UIViewController {
     case HFSideMenuRight
   }
   
+  enum HFSideMenuPositionType {
+    case HFSideMenuPositionDefault
+    case HFSideMenuPositionLeft
+    case HFSideMenuPositionRight
+  }
+  
   private var menuWidth: CGFloat
   private var mainViewController: UIViewController
   private var leftViewController: UIViewController
@@ -43,7 +49,7 @@ class HFSideMenuViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupViewControllerWithHFSideMenuType(.HFSideMenuMain)
+    setupViewControllerWithSideMenuType(.HFSideMenuMain)
     setupView()
   }
   
@@ -57,11 +63,31 @@ class HFSideMenuViewController: UIViewController {
     view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
   }
   
-  private func setupViewControllerWithHFSideMenuType(sideMenuType: HFSideMenuType) {
+  private func setupViewControllerWithSideMenuType(sideMenuType: HFSideMenuType) {
     if sideMenuType == .HFSideMenuMain {
+      mainViewController.view.frame = mainViewFrameWithSideMenuPositionType(.HFSideMenuPositionDefault)
+      addViewController(mainViewController, toView: mainView)
     } else if sideMenuType == .HFSideMenuLeft {
     } else if sideMenuType == .HFSideMenuRight {
     }
+  }
+  
+  // MARK: ViewControllers
+  
+  private func addViewController(fromViewController: UIViewController, toView: UIView) {
+    toView.addSubview(fromViewController.view)
+  }
+  
+  // MARK: Frames
+  
+  private func mainViewFrameWithSideMenuPositionType(sideMenuPositionType: HFSideMenuPositionType) -> CGRect {
+    var frame = view.bounds
+    if sideMenuPositionType == .HFSideMenuPositionLeft {
+      frame.origin.x -= menuWidth
+    } else if sideMenuPositionType == .HFSideMenuPositionRight {
+      frame.origin.x += menuWidth
+    }
+    return frame
   }
   
 }
