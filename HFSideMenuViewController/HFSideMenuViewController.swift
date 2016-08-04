@@ -61,6 +61,13 @@ class HFSideMenuViewController: UIViewController {
   
   private func setupView() {
     view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+    setupMainView()
+  }
+  
+  private func setupMainView() {
+    mainView.frame = view.bounds
+    mainView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+    view.addSubview(mainView)
   }
   
   private func setupViewControllerWithSideMenuType(sideMenuType: HFSideMenuType) {
