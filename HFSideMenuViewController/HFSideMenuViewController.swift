@@ -22,6 +22,12 @@ class HFSideMenuViewController: UIViewController {
     case HFSideMenuPositionRight
   }
   
+  enum HFSideMenuStatusType {
+    case HFSideMenuStatusUnknown
+    case HFSideMenuStatusOpen
+    case HFSideMenuStatusClose
+  }
+  
   private var menuWidth: CGFloat
   private var mainViewController: UIViewController
   private var leftViewController: UIViewController
@@ -29,6 +35,8 @@ class HFSideMenuViewController: UIViewController {
   private var mainView: UIView
   private var hideView: UIView
   private var animationDuration: CGFloat
+  
+  private var leftMenuStatus: HFSideMenuStatusType
   
   // MARK: Lifecycle
   
@@ -44,6 +52,7 @@ class HFSideMenuViewController: UIViewController {
     self.mainView = UIView()
     self.hideView = UIView()
     self.animationDuration = 0.3
+    self.leftMenuStatus = .HFSideMenuStatusUnknown
     super.init(nibName: nil, bundle: nil)
   }
   
