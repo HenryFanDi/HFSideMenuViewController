@@ -34,6 +34,7 @@ class HFSideMenuViewController: UIViewController {
   
   private var mainView: UIView
   private var hideView: UIView
+  private var leftMenuView: UIView
   private var animationDuration: CGFloat
   
   private var leftMenuStatus: HFSideMenuStatusType
@@ -45,13 +46,15 @@ class HFSideMenuViewController: UIViewController {
   }
   
   init(mainViewController: UIViewController, leftMenuViewController: UIViewController) {
-    self.menuWidth = 0.0
+    self.menuWidth = CGRectGetWidth(mainViewController.view.frame) - 60.0
     self.mainViewController = mainViewController
     self.leftViewController = leftMenuViewController
     
     self.mainView = UIView()
     self.hideView = UIView()
+    self.leftMenuView = UIView()
     self.animationDuration = 0.3
+    
     self.leftMenuStatus = .HFSideMenuStatusUnknown
     super.init(nibName: nil, bundle: nil)
   }
@@ -84,6 +87,10 @@ class HFSideMenuViewController: UIViewController {
       mainViewController.view.frame = mainViewFrameWithSideMenuPositionType(.HFSideMenuPositionDefault)
       addViewController(mainViewController, toView: mainView)
     } else if sideMenuType == .HFSideMenuLeft {
+      leftMenuView = leftViewController.view
+      leftMenuStatus = .HFSideMenuStatusClose
+      addViewController(leftViewController, toView: view)
+      resizeMenuView(leftMenuView, sideMenuType: .HFSideMenuLeft)
     } else if sideMenuType == .HFSideMenuRight {
     }
   }
@@ -104,6 +111,22 @@ class HFSideMenuViewController: UIViewController {
       frame.origin.x += menuWidth
     }
     return frame
+  }
+  
+  private func leftMenuViewFrameWithSideMenuStatusType(sideMenuStatusType: HFSideMenuStatusType) -> CGRect {
+    var frame = view.bounds
+    frame.size.width = menuWidth
+    return frame
+  }
+  
+  private func resizeMenuView(menuView: UIView, sideMenuType: HFSideMenuType) {
+    menuView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+    
+    if sideMenuType == .HFSideMenuLeft {
+      menuView.frame = leftMenuViewFrameWithSideMenuStatusType(.HFSideMenuStatusClose)
+    } else if sideMenuType == .HFSideMenuRight {
+    }
+    menuView.sizeThatFits(CGSizeMake(menuWidth, CGRectGetHeight(view.frame)))
   }
   
 }
