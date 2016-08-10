@@ -74,12 +74,29 @@ class HFSideMenuViewController: UIViewController {
   private func setupView() {
     view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
     setupMainView()
+    setupHideView()
   }
   
   private func setupMainView() {
     mainView.frame = view.bounds
     mainView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
     view.addSubview(mainView)
+  }
+  
+  private func setupHideView() {
+    hideView.frame = view.bounds
+    hideView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+    hideView.alpha = 0.0
+    mainView.addSubview(hideView)
+  }
+  
+  private func setupHideViewTapGesture() {
+    let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(HFSideMenuViewController.hideViewOnTap))
+    tapGestureRecognizer.numberOfTapsRequired = 1
+    hideView.addGestureRecognizer(tapGestureRecognizer)
+  }
+  
+  func hideViewOnTap() { // TODO: Toggle
   }
   
   private func setupViewControllerWithSideMenuType(sideMenuType: HFSideMenuType) {
