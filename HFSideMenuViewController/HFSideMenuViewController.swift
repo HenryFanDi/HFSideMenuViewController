@@ -28,6 +28,12 @@ class HFSideMenuViewController: UIViewController {
     case HFSideMenuStatusClose
   }
   
+  enum HFSideMenuTransitionType {
+    case HFSideMenuTransitionUnknown
+    case HFSideMenuTransitionToRight
+    case HFSideMenuTransitionResetFromLeft
+  }
+  
   private var menuWidth: CGFloat
   private var mainViewController: UIViewController
   private var leftViewController: UIViewController
@@ -96,7 +102,8 @@ class HFSideMenuViewController: UIViewController {
     hideView.addGestureRecognizer(tapGestureRecognizer)
   }
   
-  func hideViewOnTap() { // TODO: Toggle
+  func hideViewOnTap() {
+    toggleLeftMenuWithAnimation()
   }
   
   private func setupViewControllerWithSideMenuType(sideMenuType: HFSideMenuType) {
@@ -144,6 +151,34 @@ class HFSideMenuViewController: UIViewController {
     } else if sideMenuType == .HFSideMenuRight {
     }
     menuView.sizeThatFits(CGSizeMake(menuWidth, CGRectGetHeight(view.frame)))
+  }
+  
+  // MARK: Toggle
+  
+  func toggleLeftMenuWithAnimation() {
+    toggleMenuWithSideMenuType(.HFSideMenuLeft, animated: true)
+  }
+  
+  private func toggleMenuWithSideMenuType(sideMenuType: HFSideMenuType, animated: Bool) {
+    let sideMenuTransitionType = getSideMenuTransitionTypeWithSideMenuType(sideMenuType)
+    beginWithSideMenuTransitionType(sideMenuTransitionType, animated: animated) {
+    }
+  }
+  
+  // MARK: Transition
+  
+  private func getSideMenuTransitionTypeWithSideMenuType(sideMenuType: HFSideMenuType) -> HFSideMenuTransitionType {
+    if sideMenuType == .HFSideMenuLeft {
+      if leftMenuStatus == .HFSideMenuStatusOpen {
+        return .HFSideMenuTransitionResetFromLeft
+      } else {
+        return .HFSideMenuTransitionToRight
+      }
+    }
+    return .HFSideMenuTransitionUnknown
+  }
+  
+  private func beginWithSideMenuTransitionType(sideMenuTransitionType: HFSideMenuTransitionType, animated: Bool, completion: () -> Void) {
   }
   
 }
