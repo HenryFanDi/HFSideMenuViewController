@@ -153,6 +153,32 @@ class HFSideMenuViewController: UIViewController {
     menuView.sizeThatFits(CGSizeMake(menuWidth, CGRectGetHeight(view.frame)))
   }
   
+  private func getMainViewFrameWithSideMenuTransitionType(sideMenuTransitionType: HFSideMenuTransitionType) -> CGRect {
+    if sideMenuTransitionType == .HFSideMenuTransitionResetFromLeft {
+      return mainViewFrameWithSideMenuPositionType(.HFSideMenuPositionDefault)
+    }
+    return mainViewFrameWithSideMenuPositionType(.HFSideMenuPositionRight)
+  }
+  
+  private func getMenuViewFrameWithSideMenuTransitionType(sideMenuTransitionType: HFSideMenuTransitionType) -> CGRect {
+    if sideMenuTransitionType == .HFSideMenuTransitionResetFromLeft {
+      return leftMenuViewFrameWithSideMenuStatusType(.HFSideMenuStatusClose)
+    } else if sideMenuTransitionType == .HFSideMenuTransitionToRight {
+      return leftMenuViewFrameWithSideMenuStatusType(.HFSideMenuStatusOpen)
+    }
+    return CGRectZero
+  }
+  
+  // MARK: Status
+  
+  private func setSideMenuStatusWithSideMenuTransitionType(sideMenuTransitionType: HFSideMenuTransitionType) {
+    if sideMenuTransitionType == .HFSideMenuTransitionResetFromLeft {
+      leftMenuStatus = .HFSideMenuStatusClose
+    } else if sideMenuTransitionType == .HFSideMenuTransitionToRight {
+      leftMenuStatus = .HFSideMenuStatusOpen
+    }
+  }
+  
   // MARK: Toggle
   
   func toggleLeftMenuWithAnimation() {
@@ -179,6 +205,14 @@ class HFSideMenuViewController: UIViewController {
   }
   
   private func beginWithSideMenuTransitionType(sideMenuTransitionType: HFSideMenuTransitionType, animated: Bool, completion: () -> Void) {
+    view.endEditing(true)
+    setSideMenuStatusWithSideMenuTransitionType(sideMenuTransitionType)
+    // TODO: Hide
+    
+//    let menuView = leftMenuView // TODO: Type
+    if !animated {
+    } else {
+    }
   }
   
 }
