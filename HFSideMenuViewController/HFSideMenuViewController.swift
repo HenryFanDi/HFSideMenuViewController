@@ -207,11 +207,19 @@ class HFSideMenuViewController: UIViewController {
   private func beginWithSideMenuTransitionType(sideMenuTransitionType: HFSideMenuTransitionType, animated: Bool, completion: () -> Void) {
     view.endEditing(true)
     setSideMenuStatusWithSideMenuTransitionType(sideMenuTransitionType)
+    
     // TODO: Hide
     
-//    let menuView = leftMenuView // TODO: Type
+    let menuView = leftMenuView // TODO: Type
     if !animated {
+      menuView.frame = getMenuViewFrameWithSideMenuTransitionType(sideMenuTransitionType)
+      mainView.frame = getMainViewFrameWithSideMenuTransitionType(sideMenuTransitionType)
     } else {
+      unowned let ownedSelf = self
+      UIView.animateWithDuration(0.3, animations: { 
+        menuView.frame = ownedSelf.getMenuViewFrameWithSideMenuTransitionType(sideMenuTransitionType)
+        ownedSelf.mainView.frame = ownedSelf.getMainViewFrameWithSideMenuTransitionType(sideMenuTransitionType)
+      })
     }
   }
   
