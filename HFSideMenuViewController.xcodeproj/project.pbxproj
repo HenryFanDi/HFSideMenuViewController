@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8B60E9E1D61CAB0003546D8 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B60E9C1D61CAB0003546D8 /* LeftMenuViewController.swift */; };
+		D8B60E9F1D61CAB0003546D8 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B60E9D1D61CAB0003546D8 /* LeftMenuViewController.xib */; };
 		D8BBA0011D4B9EE500CA3B18 /* HFSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB9FFF1D4B9EE500CA3B18 /* HFSideMenuViewController.swift */; };
 		D8BBA0021D4B9EE500CA3B18 /* HFSideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BBA0001D4B9EE500CA3B18 /* HFSideMenuViewController.xib */; };
 		D8D691A91D4A568200BEC432 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D691A71D4A568200BEC432 /* MainViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D8B60E9C1D61CAB0003546D8 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		D8B60E9D1D61CAB0003546D8 /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
 		D8BB9FFF1D4B9EE500CA3B18 /* HFSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFSideMenuViewController.swift; sourceTree = "<group>"; };
 		D8BBA0001D4B9EE500CA3B18 /* HFSideMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFSideMenuViewController.xib; sourceTree = "<group>"; };
 		D8D691A71D4A568200BEC432 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				D8BBA0001D4B9EE500CA3B18 /* HFSideMenuViewController.xib */,
 				D8D691A71D4A568200BEC432 /* MainViewController.swift */,
 				D8D691A81D4A568200BEC432 /* MainViewController.xib */,
+				D8B60E9C1D61CAB0003546D8 /* LeftMenuViewController.swift */,
+				D8B60E9D1D61CAB0003546D8 /* LeftMenuViewController.xib */,
 				D8F5189E1D48F5CF00231213 /* HFSideMenuViewController.xcdatamodeld */,
 				D8F518A11D48F5CF00231213 /* Assets.xcassets */,
 				D8F518A31D48F5CF00231213 /* LaunchScreen.storyboard */,
@@ -239,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8BBA0021D4B9EE500CA3B18 /* HFSideMenuViewController.xib in Resources */,
+				D8B60E9F1D61CAB0003546D8 /* LeftMenuViewController.xib in Resources */,
 				D8F518A51D48F5CF00231213 /* LaunchScreen.storyboard in Resources */,
 				D8F518A21D48F5CF00231213 /* Assets.xcassets in Resources */,
 				D8D691AA1D4A568200BEC432 /* MainViewController.xib in Resources */,
@@ -266,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8B60E9E1D61CAB0003546D8 /* LeftMenuViewController.swift in Sources */,
 				D8BBA0011D4B9EE500CA3B18 /* HFSideMenuViewController.swift in Sources */,
 				D8F518A01D48F5CF00231213 /* HFSideMenuViewController.xcdatamodeld in Sources */,
 				D8F518981D48F5CF00231213 /* AppDelegate.swift in Sources */,

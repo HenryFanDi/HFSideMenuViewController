@@ -95,6 +95,7 @@ class HFSideMenuViewController: UIViewController {
     hideView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
     hideView.alpha = 0.0
     mainView.addSubview(hideView)
+    setupHideViewTapGesture()
   }
   
   private func setupHideViewTapGesture() {

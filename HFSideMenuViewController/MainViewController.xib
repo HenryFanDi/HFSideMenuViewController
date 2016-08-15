@@ -14,7 +14,37 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MainVC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iv4-vV-Pfw" userLabel="Title Label">
+                    <rect key="frame" x="130" y="180" width="60" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" priority="900" constant="60" id="RIj-Af-eHc"/>
+                        <constraint firstAttribute="height" priority="900" constant="20" id="wyv-AD-M64"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbX-qR-2uj" userLabel="Left Menu Button">
+                    <rect key="frame" x="110" y="269" width="100" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" priority="900" constant="100" id="0Am-Z8-42I"/>
+                        <constraint firstAttribute="height" priority="900" constant="30" id="hzo-eZ-yeL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="LeftMenuBtn"/>
+                    <connections>
+                        <action selector="leftMenuBtnOnTap:" destination="-1" eventType="touchUpInside" id="mNQ-ro-GY0"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="hbX-qR-2uj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5QN-5x-mnh"/>
+                <constraint firstItem="Iv4-vV-Pfw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XUa-fu-716"/>
+                <constraint firstItem="hbX-qR-2uj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="zcL-XA-eo7"/>
+                <constraint firstItem="Iv4-vV-Pfw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="180" id="zsl-DL-kAY"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

@@ -20,4 +20,9 @@ class MainViewController: UIViewController {
     super.didReceiveMemoryWarning()
   }
   
+  @IBAction func leftMenuBtnOnTap(sender: UIButton) {
+    let sideMenuViewController = (UIApplication.sharedApplication().delegate as! AppDelegate).sideMenuViewController
+    sideMenuViewController?.toggleLeftMenuWithAnimation()
+  }
+  
 }
