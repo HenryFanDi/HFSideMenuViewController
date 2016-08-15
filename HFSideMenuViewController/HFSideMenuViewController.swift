@@ -31,7 +31,7 @@ class HFSideMenuViewController: UIViewController {
   enum HFSideMenuTransitionType {
     case HFSideMenuTransitionUnknown
     case HFSideMenuTransitionToRight
-    case HFSideMenuTransitionResetFromLeft
+    case HFSideMenuTransitionResetFromRight
   }
   
   private var menuWidth: CGFloat
@@ -67,8 +67,9 @@ class HFSideMenuViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupViewControllerWithSideMenuType(.HFSideMenuMain)
+    setupViewControllerWithSideMenuType(.HFSideMenuLeft)
     setupView()
+    setupViewControllerWithSideMenuType(.HFSideMenuMain)
   }
   
   override func didReceiveMemoryWarning() {
@@ -94,6 +95,7 @@ class HFSideMenuViewController: UIViewController {
     hideView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
     hideView.alpha = 0.0
     mainView.addSubview(hideView)
+    setupHideViewTapGesture()
   }
   
   private func setupHideViewTapGesture() {
@@ -154,14 +156,14 @@ class HFSideMenuViewController: UIViewController {
   }
   
   private func getMainViewFrameWithSideMenuTransitionType(sideMenuTransitionType: HFSideMenuTransitionType) -> CGRect {
-    if sideMenuTransitionType == .HFSideMenuTransitionResetFromLeft {
+    if sideMenuTransitionType == .HFSideMenuTransitionResetFromRight {
       return mainViewFrameWithSideMenuPositionType(.HFSideMenuPositionDefault)
     }
     return mainViewFrameWithSideMenuPositionType(.HFSideMenuPositionRight)
   }
   
   private func getMenuViewFrameWithSideMenuTransitionType(sideMenuTransitionType: HFSideMenuTransitionType) -> CGRect {
-    if sideMenuTransitionType == .HFSideMenuTransitionResetFromLeft {
+    if sideMenuTransitionType == .HFSideMenuTransitionResetFromRight {
       return leftMenuViewFrameWithSideMenuStatusType(.HFSideMenuStatusClose)
     } else if sideMenuTransitionType == .HFSideMenuTransitionToRight {
       return leftMenuViewFrameWithSideMenuStatusType(.HFSideMenuStatusOpen)
@@ -172,10 +174,28 @@ class HFSideMenuViewController: UIViewController {
   // MARK: Status
   
   private func setSideMenuStatusWithSideMenuTransitionType(sideMenuTransitionType: HFSideMenuTransitionType) {
-    if sideMenuTransitionType == .HFSideMenuTransitionResetFromLeft {
+    if sideMenuTransitionType == .HFSideMenuTransitionResetFromRight {
       leftMenuStatus = .HFSideMenuStatusClose
     } else if sideMenuTransitionType == .HFSideMenuTransitionToRight {
       leftMenuStatus = .HFSideMenuStatusOpen
+    }
+  }
+  
+  // MARK: Hide
+  
+  private func setHideViewWithSideMenuTransitionType(sideMenuTransitionType: HFSideMenuTransitionType) {
+    unowned let ownedSelf = self
+    if sideMenuTransitionType == .HFSideMenuTransitionResetFromRight {
+      UIView.animateWithDuration(0.3, animations: { 
+        ownedSelf.hideView.alpha = 0.0
+      }, completion: { (finished) in
+        ownedSelf.mainView.sendSubviewToBack(ownedSelf.hideView)
+      })
+    } else if sideMenuTransitionType == .HFSideMenuTransitionToRight {
+      mainView.bringSubviewToFront(hideView)
+      UIView.animateWithDuration(0.3, animations: { 
+        ownedSelf.hideView.alpha = 1.0
+      })
     }
   }
   
@@ -196,7 +216,7 @@ class HFSideMenuViewController: UIViewController {
   private func getSideMenuTransitionTypeWithSideMenuType(sideMenuType: HFSideMenuType) -> HFSideMenuTransitionType {
     if sideMenuType == .HFSideMenuLeft {
       if leftMenuStatus == .HFSideMenuStatusOpen {
-        return .HFSideMenuTransitionResetFromLeft
+        return .HFSideMenuTransitionResetFromRight
       } else {
         return .HFSideMenuTransitionToRight
       }
@@ -207,8 +227,7 @@ class HFSideMenuViewController: UIViewController {
   private func beginWithSideMenuTransitionType(sideMenuTransitionType: HFSideMenuTransitionType, animated: Bool, completion: () -> Void) {
     view.endEditing(true)
     setSideMenuStatusWithSideMenuTransitionType(sideMenuTransitionType)
-    
-    // TODO: Hide
+    setHideViewWithSideMenuTransitionType(sideMenuTransitionType)
     
     let menuView = leftMenuView // TODO: Type
     if !animated {
