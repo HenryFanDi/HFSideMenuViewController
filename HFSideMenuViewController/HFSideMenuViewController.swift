@@ -34,7 +34,7 @@ class HFSideMenuViewController: UIViewController {
     case HFSideMenuTransitionResetFromRight
   }
   
-  private var menuWidth: CGFloat
+  var menuWidth: CGFloat
   private var mainViewController: UIViewController
   private var leftViewController: UIViewController
   
@@ -52,7 +52,7 @@ class HFSideMenuViewController: UIViewController {
   }
   
   init(mainViewController: UIViewController, leftMenuViewController: UIViewController) {
-    self.menuWidth = CGRectGetWidth(mainViewController.view.frame) - 60.0
+    self.menuWidth = CGRectGetWidth(UIScreen.mainScreen().bounds) - 100
     self.mainViewController = mainViewController
     self.leftViewController = leftMenuViewController
     
