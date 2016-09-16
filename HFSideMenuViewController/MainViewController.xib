@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="HFSideMenuViewController" customModuleProvider="target">
             <connections>
+                <outlet property="leftMenuBtn" destination="hbX-qR-2uj" id="USH-N2-1wk"/>
+                <outlet property="titleLabel" destination="Iv4-vV-Pfw" id="F8N-fv-jIt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,10 +17,9 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MainVC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iv4-vV-Pfw" userLabel="Title Label">
-                    <rect key="frame" x="130" y="180" width="60" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iv4-vV-Pfw" userLabel="Title Label">
+                    <rect key="frame" x="0.0" y="150" width="320" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="width" priority="900" constant="60" id="RIj-Af-eHc"/>
                         <constraint firstAttribute="height" priority="900" constant="20" id="wyv-AD-M64"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -26,24 +27,25 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbX-qR-2uj" userLabel="Left Menu Button">
-                    <rect key="frame" x="110" y="269" width="100" height="30"/>
+                    <rect key="frame" x="110" y="220" width="100" height="45"/>
                     <constraints>
                         <constraint firstAttribute="width" priority="900" constant="100" id="0Am-Z8-42I"/>
-                        <constraint firstAttribute="height" priority="900" constant="30" id="hzo-eZ-yeL"/>
+                        <constraint firstAttribute="height" priority="900" constant="45" id="hzo-eZ-yeL"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="LeftMenuBtn"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <connections>
                         <action selector="leftMenuBtnOnTap:" destination="-1" eventType="touchUpInside" id="mNQ-ro-GY0"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="hbX-qR-2uj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5QN-5x-mnh"/>
+                <constraint firstItem="hbX-qR-2uj" firstAttribute="top" secondItem="Iv4-vV-Pfw" secondAttribute="bottom" constant="50" id="PcW-W3-hvw"/>
+                <constraint firstItem="Iv4-vV-Pfw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="R3c-n0-vde"/>
                 <constraint firstItem="Iv4-vV-Pfw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XUa-fu-716"/>
-                <constraint firstItem="hbX-qR-2uj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="zcL-XA-eo7"/>
-                <constraint firstItem="Iv4-vV-Pfw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="180" id="zsl-DL-kAY"/>
+                <constraint firstAttribute="trailing" secondItem="Iv4-vV-Pfw" secondAttribute="trailing" id="r8N-53-BE5"/>
+                <constraint firstItem="Iv4-vV-Pfw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="zsl-DL-kAY"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
