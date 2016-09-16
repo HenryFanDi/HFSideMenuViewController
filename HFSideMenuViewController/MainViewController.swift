@@ -21,8 +21,7 @@ class MainViewController: UIViewController {
   }
   
   @IBAction func leftMenuBtnOnTap(sender: UIButton) {
-    let sideMenuViewController = (UIApplication.sharedApplication().delegate as! AppDelegate).sideMenuViewController
-    sideMenuViewController?.toggleLeftMenuWithAnimation()
+    HFSideMenuHelper.shard.toggleLeftMenuWithAnimation()
   }
   
 }

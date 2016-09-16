@@ -63,6 +63,7 @@ class HFSideMenuViewController: UIViewController {
     
     self.leftMenuStatus = .HFSideMenuStatusUnknown
     super.init(nibName: nil, bundle: nil)
+    HFSideMenuHelper.shard.sideMenuViewController = self
   }
   
   override func viewDidLoad() {
@@ -110,15 +111,23 @@ class HFSideMenuViewController: UIViewController {
   
   private func setupViewControllerWithSideMenuType(sideMenuType: HFSideMenuType) {
     if sideMenuType == .HFSideMenuMain {
-      mainViewController.view.frame = mainViewFrameWithSideMenuPositionType(.HFSideMenuPositionDefault)
-      addViewController(mainViewController, toView: mainView)
+      setupSideMenuMain()
     } else if sideMenuType == .HFSideMenuLeft {
-      leftMenuView = leftViewController.view
-      leftMenuStatus = .HFSideMenuStatusClose
-      addViewController(leftViewController, toView: view)
-      resizeMenuView(leftMenuView, sideMenuType: .HFSideMenuLeft)
+      setupSideMenuLeft()
     } else if sideMenuType == .HFSideMenuRight {
     }
+  }
+  
+  private func setupSideMenuMain() {
+    mainViewController.view.frame = mainViewFrameWithSideMenuPositionType(.HFSideMenuPositionDefault)
+    addViewController(mainViewController, toView: mainView)
+  }
+  
+  private func setupSideMenuLeft() {
+    leftMenuView = leftViewController.view
+    leftMenuStatus = .HFSideMenuStatusClose
+    addViewController(leftViewController, toView: view)
+    resizeMenuView(leftMenuView, sideMenuType: .HFSideMenuLeft)
   }
   
   // MARK: ViewControllers

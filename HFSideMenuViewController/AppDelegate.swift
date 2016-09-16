@@ -13,13 +13,12 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
-  var sideMenuViewController: HFSideMenuViewController?
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     let mainViewController = MainViewController(nibName: "MainViewController", bundle: nil)
     let leftMenuViewController = LeftMenuViewController(nibName: "LeftMenuViewController", bundle: nil)
-    sideMenuViewController = HFSideMenuViewController.init(mainViewController: mainViewController,
-                                                           leftMenuViewController: leftMenuViewController)
+    let sideMenuViewController = HFSideMenuViewController.init(mainViewController: mainViewController,
+                                                               leftMenuViewController: leftMenuViewController)
     window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
     window?.rootViewController = sideMenuViewController
     window?.makeKeyAndVisible()
