@@ -34,14 +34,15 @@ class HFSideMenuViewController: UIViewController {
     case HFSideMenuTransitionResetFromRight
   }
   
-  private var menuWidth: CGFloat
+  var menuWidth: CGFloat
+  var menuAnimationDuration: CGFloat
+  
   private var mainViewController: UIViewController
   private var leftViewController: UIViewController
   
   private var mainView: UIView
   private var hideView: UIView
   private var leftMenuView: UIView
-  private var animationDuration: CGFloat
   
   private var leftMenuStatus: HFSideMenuStatusType
   
@@ -52,17 +53,19 @@ class HFSideMenuViewController: UIViewController {
   }
   
   init(mainViewController: UIViewController, leftMenuViewController: UIViewController) {
-    self.menuWidth = CGRectGetWidth(mainViewController.view.frame) - 60.0
+    self.menuWidth = CGRectGetWidth(UIScreen.mainScreen().bounds) - 100
+    self.menuAnimationDuration = 0.5
+    
     self.mainViewController = mainViewController
     self.leftViewController = leftMenuViewController
     
     self.mainView = UIView()
     self.hideView = UIView()
     self.leftMenuView = UIView()
-    self.animationDuration = 0.3
     
     self.leftMenuStatus = .HFSideMenuStatusUnknown
     super.init(nibName: nil, bundle: nil)
+    HFSideMenuHelper.shard.sideMenuViewController = self
   }
   
   override func viewDidLoad() {
@@ -92,6 +95,7 @@ class HFSideMenuViewController: UIViewController {
   
   private func setupHideView() {
     hideView.frame = view.bounds
+    hideView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3)
     hideView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
     hideView.alpha = 0.0
     mainView.addSubview(hideView)
@@ -110,15 +114,23 @@ class HFSideMenuViewController: UIViewController {
   
   private func setupViewControllerWithSideMenuType(sideMenuType: HFSideMenuType) {
     if sideMenuType == .HFSideMenuMain {
-      mainViewController.view.frame = mainViewFrameWithSideMenuPositionType(.HFSideMenuPositionDefault)
-      addViewController(mainViewController, toView: mainView)
+      setupSideMenuMain()
     } else if sideMenuType == .HFSideMenuLeft {
-      leftMenuView = leftViewController.view
-      leftMenuStatus = .HFSideMenuStatusClose
-      addViewController(leftViewController, toView: view)
-      resizeMenuView(leftMenuView, sideMenuType: .HFSideMenuLeft)
+      setupSideMenuLeft()
     } else if sideMenuType == .HFSideMenuRight {
     }
+  }
+  
+  private func setupSideMenuMain() {
+    mainViewController.view.frame = mainViewFrameWithSideMenuPositionType(.HFSideMenuPositionDefault)
+    addViewController(mainViewController, toView: mainView)
+  }
+  
+  private func setupSideMenuLeft() {
+    leftMenuView = leftViewController.view
+    leftMenuStatus = .HFSideMenuStatusClose
+    addViewController(leftViewController, toView: view)
+    resizeMenuView(leftMenuView, sideMenuType: .HFSideMenuLeft)
   }
   
   // MARK: ViewControllers
@@ -186,14 +198,14 @@ class HFSideMenuViewController: UIViewController {
   private func setHideViewWithSideMenuTransitionType(sideMenuTransitionType: HFSideMenuTransitionType) {
     unowned let ownedSelf = self
     if sideMenuTransitionType == .HFSideMenuTransitionResetFromRight {
-      UIView.animateWithDuration(0.3, animations: { 
+      UIView.animateWithDuration(Double(menuAnimationDuration) , animations: {
         ownedSelf.hideView.alpha = 0.0
       }, completion: { (finished) in
         ownedSelf.mainView.sendSubviewToBack(ownedSelf.hideView)
       })
     } else if sideMenuTransitionType == .HFSideMenuTransitionToRight {
       mainView.bringSubviewToFront(hideView)
-      UIView.animateWithDuration(0.3, animations: { 
+      UIView.animateWithDuration(Double(menuAnimationDuration), animations: {
         ownedSelf.hideView.alpha = 1.0
       })
     }
@@ -235,7 +247,7 @@ class HFSideMenuViewController: UIViewController {
       mainView.frame = getMainViewFrameWithSideMenuTransitionType(sideMenuTransitionType)
     } else {
       unowned let ownedSelf = self
-      UIView.animateWithDuration(0.3, animations: { 
+      UIView.animateWithDuration(Double(menuAnimationDuration), animations: {
         menuView.frame = ownedSelf.getMenuViewFrameWithSideMenuTransitionType(sideMenuTransitionType)
         ownedSelf.mainView.frame = ownedSelf.getMainViewFrameWithSideMenuTransitionType(sideMenuTransitionType)
       })

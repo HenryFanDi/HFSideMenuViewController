@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeftMenuViewController" customModule="HFSideMenuViewController" customModuleProvider="target">
             <connections>
+                <outlet property="titleLabel" destination="cNr-SJ-jBB" id="F4e-pY-q7o"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,20 +16,20 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LeftMenuVC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNr-SJ-jBB" userLabel="Title Label">
-                    <rect key="frame" x="115" y="180" width="90" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNr-SJ-jBB" userLabel="Title Label">
+                    <rect key="frame" x="0.0" y="150" width="320" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="width" priority="900" constant="90" id="8Oo-3a-5YW"/>
+                        <constraint firstAttribute="width" priority="900" constant="320" id="8Oo-3a-5YW"/>
                         <constraint firstAttribute="height" priority="900" constant="20" id="XGG-rD-huE"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="cNr-SJ-jBB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="180" id="NOS-nW-hze"/>
+                <constraint firstItem="cNr-SJ-jBB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="NOS-nW-hze"/>
                 <constraint firstItem="cNr-SJ-jBB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nDt-kD-uAc"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
