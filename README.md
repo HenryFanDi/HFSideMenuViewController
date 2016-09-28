@@ -2,6 +2,8 @@
 
 SideMenuViewController show left view of your viewController.
 
+<img src="https://raw.githubusercontent.com/HenryFanDi/HFSideMenuViewController/develop/demo.gif" width="320" height="563">
+
 ## Usage
 
 Initialize your two viewControllers, includes mainly viewController and left menu viewController.
