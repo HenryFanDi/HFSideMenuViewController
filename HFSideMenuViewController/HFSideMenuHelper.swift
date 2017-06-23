@@ -10,7 +10,7 @@ import UIKit
 
 class HFSideMenuHelper: NSObject {
   
-  private var _sideMenuViewController: HFSideMenuViewController?
+  fileprivate var _sideMenuViewController: HFSideMenuViewController?
   var sideMenuViewController: HFSideMenuViewController? {
     set { _sideMenuViewController = newValue }
     get { return _sideMenuViewController }
@@ -18,16 +18,7 @@ class HFSideMenuHelper: NSObject {
   
   // MARK: Singleton Pattern
   
-  class var shard: HFSideMenuHelper {
-    struct Static {
-      static var instance: HFSideMenuHelper?
-      static var token: dispatch_once_t = 0
-    }
-    dispatch_once(&Static.token) { 
-      Static.instance = HFSideMenuHelper()
-    }
-    return Static.instance!
-  }
+  static let sharedInstance = HFSideMenuHelper()
   
   // MARK: Public
   

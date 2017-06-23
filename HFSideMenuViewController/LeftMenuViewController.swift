@@ -25,16 +25,16 @@ class LeftMenuViewController: UIViewController {
   
   // MARK: Private
   
-  private func setupLeftMenuViewController() {
+  fileprivate func setupLeftMenuViewController() {
     view.backgroundColor = UIColor.init(red: 230.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, alpha: 1.0)
     setupTitleLabel()
   }
   
-  private func setupTitleLabel() {
+  fileprivate func setupTitleLabel() {
     titleLabel.text = "LeftMenuViewController"
-    titleLabel.textColor = UIColor.blackColor()
-    titleLabel.textAlignment = .Center
-    titleLabel.font = UIFont.systemFontOfSize(16.0)
+    titleLabel.textColor = UIColor.black
+    titleLabel.textAlignment = .center
+    titleLabel.font = UIFont.systemFont(ofSize: 16.0)
   }
   
 }

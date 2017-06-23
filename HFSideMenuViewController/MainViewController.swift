@@ -26,32 +26,32 @@ class MainViewController: UIViewController {
   
   // MARK: Private
   
-  private func setupMainViewController() {
+  fileprivate func setupMainViewController() {
     setupTitleLabel()
     setupLeftMenuBtn()
   }
   
-  private func setupTitleLabel() {
+  fileprivate func setupTitleLabel() {
     titleLabel.text = "MainViewController"
-    titleLabel.textColor = .blackColor()
-    titleLabel.textAlignment = .Center
-    titleLabel.font = UIFont.systemFontOfSize(16.0)
+    titleLabel.textColor = .black
+    titleLabel.textAlignment = .center
+    titleLabel.font = UIFont.systemFont(ofSize: 16.0)
   }
   
-  private func setupLeftMenuBtn() {
-    leftMenuBtn.setTitle("LeftMenu", forState: .Normal)
-    leftMenuBtn.setTitleColor(.blackColor(), forState: .Normal)
-    leftMenuBtn.titleLabel?.font = UIFont.systemFontOfSize(14.0)
-    leftMenuBtn.titleLabel?.textAlignment = .Center
+  fileprivate func setupLeftMenuBtn() {
+    leftMenuBtn.setTitle("LeftMenu", for: UIControlState())
+    leftMenuBtn.setTitleColor(.black, for: UIControlState())
+    leftMenuBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
+    leftMenuBtn.titleLabel?.textAlignment = .center
     leftMenuBtn.layer.borderWidth = 1.0
-    leftMenuBtn.layer.borderColor = UIColor.blackColor().CGColor
+    leftMenuBtn.layer.borderColor = UIColor.black.cgColor
     leftMenuBtn.layer.cornerRadius = 10.0
   }
   
   // MARK: IBAction
   
-  @IBAction func leftMenuBtnOnTap(sender: UIButton) {
-    HFSideMenuHelper.shard.toggleLeftMenuWithAnimation()
+  @IBAction func leftMenuBtnOnTap(_ sender: UIButton) {
+    HFSideMenuHelper.sharedInstance.toggleLeftMenuWithAnimation()
   }
   
 }
